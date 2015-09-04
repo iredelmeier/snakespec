@@ -1,0 +1,5 @@
+snakespec.egg-info
+*.pyc
+.idea
+dist
+build
