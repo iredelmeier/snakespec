@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='snakespec',
-    version='0.1.0.a2',
+    version='0.1.0',
     description='BDD testing for python',
     long_description='A simple, scale-free BDD testing framework for Python',
     url='https://github.com/iredelmeier/snakespec',

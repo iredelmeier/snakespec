@@ -3,8 +3,8 @@
 Simple behaviour-driven development for Python, inspired by RSpec and Jasmine.
 Currently available as a plugin for [Nose](https://nose.readthedocs.org/en/latest/).
 
-_SnakeSpec is currently in alpha mode. Use at your own risk!_  
-_Feedback and contributions are much appreciated._
+_SnakeSpec is currently in development mode and may not be stable._  
+_Feedback and contributions are much appreciated!_
 
 ## Features ##
 
@@ -73,8 +73,8 @@ or
 
 ## Planned Features ##
 
+* Improved test descriptions
 * Better test coverage
-* Documentation on PyPI and Read the Docs
 * Further examples
 * Support for additional versions of Python, including Python 3
 * Usage as a unittest2 plugin
