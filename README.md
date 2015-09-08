@@ -38,10 +38,12 @@ or
 [testMatch](https://nose.readthedocs.org/en/latest/usage.html?highlight=testmatch#cmdoption--testmatch)
 
 
+## Examples ##
+
     from unittest import TestCase
     from snakespec.snakespec import describe
     
-    class TestSomeClass(TestCase):
+    class TestNestedExample(TestCase):
         def setUp(self):
             self.foo = 'foo'
             
@@ -51,7 +53,7 @@ or
         @describe
         class GivenSomeCircumstance(TestCase):
             def setUp(self):
-                super(TestSomeClass.GivenSomeCircumstance, self).setUp()
+                super(TestNestedExample.GivenSomeCircumstance, self).setUp()
                 self.bar = 'bar'
                 
             def it_should_inherit_setup(self):
@@ -63,7 +65,7 @@ or
             @describe
             class WhenSomethingHappens(TestCase):
                 def setUp(self):
-                    super(TestSomeClass.GivenSomeCircumstance.WhenSomethingHappens, self).setUp()
+                    super(TestNestedExample.GivenSomeCircumstance.WhenSomethingHappens, self).setUp()
                     self.foobar = self.foo + self.bar
                     
                 def it_should_inherit_setup_from_all_ancestors(self):
@@ -71,7 +73,7 @@ or
 
 ## Planned Features ##
 
-* Test coverage (oh, the irony!)
+* Better test coverage
 * Documentation on PyPI and Read the Docs
 * Further examples
 * Support for additional versions of Python, including Python 3

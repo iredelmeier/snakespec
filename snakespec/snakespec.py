@@ -1,7 +1,6 @@
 from inspect import getmembers
 from os import environ
 from os.path import sep
-from re import search
 import re
 from types import MethodType
 from nose.plugins import Plugin
