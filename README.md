@@ -15,7 +15,7 @@ _Feedback and contributions are much appreciated!_
 
 For regular usage:
 
-    pip install -i https://testpypi.python.org/pypi snakespec
+    pip install snakespec
 
 From the source:
 
