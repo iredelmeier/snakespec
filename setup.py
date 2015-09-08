@@ -4,7 +4,7 @@ setup(
     name='snakespec',
     version='0.1.0',
     description='BDD testing for python',
-    long_description='A simple, scale-free BDD testing framework for Python',
+    long_description='A simple, scale-free BDD testing plugin for Python',
     url='https://github.com/iredelmeier/snakespec',
     author='Isobel Redelmeier',
     author_email='iredelmeier@gmail.com',
