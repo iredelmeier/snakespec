@@ -16,6 +16,8 @@ class SnakeSpec(Plugin):
 
     def __init__(self):
         super(SnakeSpec, self).__init__()
+        bdd_pattern = r'(?:^|[\b_\.{sep}-])(?:[Tt]est|[Ii]t|[Ss]hould|[Tt]hen)'.format(sep=sep)
+        self._snakespec_pattern = re.compile(bdd_pattern)
 
     def options(self, parser, env=None):
         env = env or environ
@@ -42,15 +44,13 @@ class SnakeSpec(Plugin):
     def configure(self, options, conf):
         super(SnakeSpec, self).configure(options, conf)
         if options.snakespec:
-            bdd_pattern = r'(?:^|[\b_\.{sep}-])(?:[Tt]est|[Ii]t|[Ss]hould|[Tt]hen)'.format(sep=sep)
             self.enabled = True
-            self.conf.testMatch = re.compile(bdd_pattern)
+
+    def wantMethod(self, method):
+        return self._is_test(method) or None
 
     def loadTestsFromTestCase(self, cls):
-        # hisssssssssssssssssssss
-        # oh so grossssssssssssss
         for (name, member) in getmembers(cls, self._is_describe):
-
             member_name = member.__name__
             descendant = type(member_name, (cls,), member.__dict__.copy())
             delattr(descendant, '_is_describe')
@@ -65,7 +65,7 @@ class SnakeSpec(Plugin):
         return getattr(obj, '_is_describe', False)
 
     def _is_test(self, obj):
-        return isinstance(obj, MethodType) and self.conf.testMatch.search(obj.im_func.func_name)
+        return isinstance(obj, MethodType) and self._snakespec_pattern.search(obj.im_func.func_name)
 
     def _get_test_from_case(self, test_case, test):
         return test_case(test.im_func.func_name)
