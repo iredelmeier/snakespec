@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='snakespec',
-    version='0.1.1',
+    version='0.1.2',
     description='BDD testing for python',
     long_description='A simple, scale-free BDD testing plugin for Python',
     url='https://github.com/iredelmeier/snakespec',
@@ -18,10 +18,7 @@ setup(
         'Operating System :: OS Independent',
     ],
     keywords='test nosetests nose nosetest tdd bdd testing rspec',
-    packages=find_packages(exclude=['test*', 'docs']),
+    packages=find_packages(exclude=['test', 'docs']),
     install_requires=['nose'],
-    extras_require={
-        'dev': ['ipdb', 'ipython', 'pyhamcrest'],
-    },
     entry_points={'nose.plugins.0.10': ['snakespec=snakespec.snakespec:SnakeSpec']},
 )

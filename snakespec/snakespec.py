@@ -50,7 +50,12 @@ class SnakeSpec(Plugin):
         return self._is_test(method) or None
 
     def loadTestsFromTestCase(self, cls):
-        for (name, member) in getmembers(cls, self._is_describe):
+        def is_child_test_case(obj):
+            return self._is_describe(obj) and obj.__name__ in cls_children
+
+        cls_children = cls.__dict__.copy()
+
+        for (name, member) in getmembers(cls, is_child_test_case):
             member_name = member.__name__
             descendant = type(member_name, (cls,), member.__dict__.copy())
             delattr(descendant, '_is_describe')

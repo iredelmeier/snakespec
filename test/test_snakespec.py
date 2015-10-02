@@ -18,6 +18,15 @@ class TestNestedExample(SnakeSpecTester):
         assert 'ERROR' not in self.output
 
 
+class TestMultipleChildrenExample(SnakeSpecTester):
+    suitepath = os.path.join(os.getcwd(), 'examples', 'test_multiple_children_example.py')
+
+    def test_it_should_run_all_tests(self):
+        assert 'Ran 9 tests' in self.output
+        assert 'FAILED' not in self.output
+        assert 'ERROR' not in self.output
+
+
 class TestHamcrestExample(SnakeSpecTester):
     suitepath = os.path.join(os.getcwd(), 'examples', 'test_hamcrest_example.py')
 
